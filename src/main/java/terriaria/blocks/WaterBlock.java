@@ -8,7 +8,6 @@ import terriaria.Game;
 import terriaria.World;
 
 public class WaterBlock extends Block {
-	public int type = 4;
 	public WaterBlock(int x, int y, World world) {
 		super(x, y, world);
 	}
@@ -40,5 +39,10 @@ public class WaterBlock extends Block {
 	@Override
 	public boolean canBeReplaced() {
 		return true;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(0);
 	}
 }

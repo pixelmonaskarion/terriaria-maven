@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class PlankBlock extends Block{
 	public PlankBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 12;
-		loadTexture(12);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public PlankBlock(int x, int y) {
 		super(x, y);
-		type = 12;
-		loadTexture(12);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -25,5 +23,10 @@ public class PlankBlock extends Block{
 	@Override
 	public int getHardness() {
 		return 300;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(12);
 	}
 }

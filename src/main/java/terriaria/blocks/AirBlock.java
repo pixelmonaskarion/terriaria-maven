@@ -2,19 +2,18 @@ package terriaria.blocks;
 
 import java.beans.ConstructorProperties;
 
+import terriaria.Game;
 import terriaria.World;
 
 public class AirBlock extends Block {
 	public AirBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 2;
-		loadTexture(2);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public AirBlock(int x, int y) {
 		super(x, y);
-		type = 2;
-		loadTexture(2);
+		loadTexture();
 	}
 	@Override
 	public int getHardness() {
@@ -31,5 +30,9 @@ public class AirBlock extends Block {
 	@Override
 	public boolean canBeReplaced() {
 		return true;
+	}
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(2);
 	}
 }

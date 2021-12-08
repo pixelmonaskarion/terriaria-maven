@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class SandBlock extends Block {
 	public SandBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 14;
-		loadTexture(14);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public SandBlock(int x, int y) {
 		super(x, y);
-		type = 14;
-		loadTexture(14);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -25,5 +23,10 @@ public class SandBlock extends Block {
 	@Override
 	public int getHardness() {
 		return 60;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(14);
 	}
 }

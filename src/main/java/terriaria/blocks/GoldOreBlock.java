@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class GoldOreBlock extends Block {
 	public GoldOreBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 5;
-		loadTexture(5);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public GoldOreBlock(int x, int y) {
 		super(x, y);
-		type = 5;
-		loadTexture(5);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -25,5 +23,10 @@ public class GoldOreBlock extends Block {
 	@Override
 	public int getHardness() {
 		return 700;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(5);
 	}
 }

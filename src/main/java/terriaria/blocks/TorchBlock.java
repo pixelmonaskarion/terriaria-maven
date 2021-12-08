@@ -11,14 +11,12 @@ import terriaria.particles.FlameParticle;
 public class TorchBlock extends Block {
 	public TorchBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 11;
-		loadTexture(11);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public TorchBlock(int x, int y) {
 		super(x, y);
-		type = 11;
-		loadTexture(11);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -41,6 +39,11 @@ public class TorchBlock extends Block {
 		if (new Random().nextInt(1000) == 1) {
 			world.addParticle(new FlameParticle((x*Game.blockSize)+Game.blockSize/4+Game.blockSize/4,(y*Game.blockSize)+Game.blockSize/2));
 		}
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(13);
 	}
 //	@Override
 //	public void onTick() {

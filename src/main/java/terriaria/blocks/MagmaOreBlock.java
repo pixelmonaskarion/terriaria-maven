@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class MagmaOreBlock extends Block{
 	public MagmaOreBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 19;
-		loadTexture(19);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public MagmaOreBlock(int x, int y) {
 		super(x, y);
-		type = 19;
-		loadTexture(19);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -25,5 +23,10 @@ public class MagmaOreBlock extends Block{
 	@Override
 	public int getHardness() {
 		return 900;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(19);
 	}
 }

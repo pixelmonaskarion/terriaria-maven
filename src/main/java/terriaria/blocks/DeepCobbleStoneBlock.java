@@ -7,13 +7,11 @@ import terriaria.entities.Item;
 public class DeepCobbleStoneBlock extends Block {
 	public DeepCobbleStoneBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 15;
-		loadTexture(15);
+		loadTexture();
 	}
 	public DeepCobbleStoneBlock(int x, int y) {
 		super(x, y);
-		type = 15;
-		loadTexture(15);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -22,5 +20,10 @@ public class DeepCobbleStoneBlock extends Block {
 	@Override
 	public int getHardness() {
 		return 800;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(15);
 	}
 }

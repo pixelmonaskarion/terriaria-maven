@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class CobbleStoneBlock extends Block {
 	public CobbleStoneBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 13;
-		loadTexture(13);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public CobbleStoneBlock(int x, int y) {
 		super(x, y);
-		type = 13;
-		loadTexture(13);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -25,5 +23,10 @@ public class CobbleStoneBlock extends Block {
 	@Override
 	public int getHardness() {
 		return 500;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(13);
 	}
 }

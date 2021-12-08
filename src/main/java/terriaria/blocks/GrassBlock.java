@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class GrassBlock extends Block {
 	public GrassBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 0;
-		loadTexture(0);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public GrassBlock(int x, int y) {
 		super(x, y);
-		type = 0;
-		loadTexture(0);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -25,5 +23,10 @@ public class GrassBlock extends Block {
 	@Override
 	public int getHardness() {
 		return 60;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(0);
 	}
 }

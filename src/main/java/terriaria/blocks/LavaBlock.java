@@ -40,4 +40,9 @@ public class LavaBlock extends Block {
 	@Override
 	public void damage(int amount) {
 	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(0);
+	}
 }

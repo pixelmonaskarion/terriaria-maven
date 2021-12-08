@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class BlackCrystalOreBlock extends Block {
 	public BlackCrystalOreBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 17;
-		loadTexture(17);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public BlackCrystalOreBlock(int x, int y) {
 		super(x, y);
-		type = 17;
-		loadTexture(17);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -27,4 +25,8 @@ public class BlackCrystalOreBlock extends Block {
 		return 900;
 	}
 
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(17);
+	}
 }

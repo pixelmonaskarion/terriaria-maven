@@ -9,14 +9,12 @@ import terriaria.entities.Item;
 public class CraftingTableBlock extends Block{
 	public CraftingTableBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 10;
-		loadTexture(10);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public CraftingTableBlock(int x, int y) {
 		super(x, y);
-		type = 10;
-		loadTexture(10);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -29,5 +27,10 @@ public class CraftingTableBlock extends Block{
 	@Override
 	public boolean hasHitbox() {
 		return false;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(10);
 	}
 }

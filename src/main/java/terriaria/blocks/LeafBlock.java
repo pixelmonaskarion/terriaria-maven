@@ -10,14 +10,12 @@ import terriaria.entities.Item;
 public class LeafBlock extends Block {
 	public LeafBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 8;
-		loadTexture(8);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public LeafBlock(int x, int y) {
 		super(x, y);
-		type = 8;
-		loadTexture(8);
+		loadTexture();
 	}
 	@Override
 	public int getHardness() {
@@ -32,5 +30,10 @@ public class LeafBlock extends Block {
 	@Override
 	public boolean letsLightThrough() {
 		return true;
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(8);
 	}
 }

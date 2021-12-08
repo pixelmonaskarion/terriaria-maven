@@ -44,10 +44,9 @@ import terriaria.World;
 	@Type(value = WhiteCrystalOreBlock.class, name = "white_crystal_ore"),
 	@Type(value = WoodBlock.class, name = "wood")
 })
-public class Block {
+public abstract class Block {
 	public int x;
 	public int y;
-	public int type = 0;
 	public int damage = 0;
 	@JsonIgnore
 	private Image damageImage;
@@ -91,7 +90,9 @@ public class Block {
 		if ((x*size)-Game.scrollX>-Game.blockSize && (x*size)-Game.scrollX<Start.screenSize.getWidth()) {
 			if ((y*size)-Game.scrollY>-Game.blockSize && (y*size)-Game.scrollY<Start.screenSize.getHeight()) {
 				light = light();
-				g.drawImage(image, (x*size)-Game.scrollX, (y*size)-Game.scrollY,size, size, ob);
+				if (light != 0) {
+					g.drawImage(image, (x*size)-Game.scrollX, (y*size)-Game.scrollY,size, size, ob);
+				}
 				onTick();
 			}
 		}
@@ -199,9 +200,8 @@ public class Block {
 	public boolean letsLightThrough() {
 		return !hasHitbox();
 	}
-	public void loadTexture(int type) {
-		image = Game.images.blocks.get(type);
-	}
+	public abstract void loadTexture();
+		//image = Game.images.blocks.get(type);
 	public void drawLight(Graphics g) {
 		int size = Game.blockSize;
 		if ((x*size)-Game.scrollX>-Game.blockSize && (x*size)-Game.scrollX<Start.screenSize.getWidth()) {

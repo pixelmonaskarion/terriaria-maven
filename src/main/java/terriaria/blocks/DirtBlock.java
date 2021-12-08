@@ -10,14 +10,12 @@ import terriaria.entities.Item;
 public class DirtBlock extends Block {
 	public DirtBlock(int x, int y, World world) {
 		super(x, y, world);
-		type = 1;
-		loadTexture(1);
+		loadTexture();
 	}
 	@ConstructorProperties({"x", "y"})
 	public DirtBlock(int x, int y) {
 		super(x, y);
-		type = 1;
-		loadTexture(1);
+		loadTexture();
 	}
 	@Override
 	public void breakBlock() {
@@ -38,5 +36,10 @@ public class DirtBlock extends Block {
 			}
 		}
 		}
+	}
+	
+	@Override
+	public void loadTexture() {
+		image = Game.images.blocks.get(1);
 	}
 }
